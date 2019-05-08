@@ -47,10 +47,11 @@ class Product extends Component{
         const productsArr = this.props.products; 
         
         return(<div >
-            <div class="card-row" >
+            <div class="row mt-2" >
                   { productsArr.length > 0 ?  productsArr.map((product,index) => {
                     
                      return(
+                        <div className="col-md-6 py-3">
                         <div class="card">
                          
                     <div class="card-header">{product.book_id}{".  "}{product.title} </div>
@@ -59,6 +60,8 @@ class Product extends Component{
                     <h6 class="card-title text-right">By: {product.author}</h6>
                     </div>
                     <div class="card-footer">
+
+
                     <button
               onClick={this.onDetails.bind(this,product)}
               className={'btn btn-primary btn-sm float-right'}
@@ -80,11 +83,13 @@ class Product extends Component{
             </button>
             </div>
              </div>      
+                     
+                     </div>
                      ) 
                      
-                    }) : 'Card is Loading......' }
+                    }) : 'Book is Loading......' }
                     
-    <Modal show={this.state.show} onHide={this.handleClose}>
+              <Modal show={this.state.show} onHide={this.handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>{this.state.obj.book_id}. {this.state.obj.title}</Modal.Title>
               </Modal.Header>

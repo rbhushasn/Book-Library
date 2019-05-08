@@ -64,12 +64,17 @@ render(){
     let {id,title,author,description } = this.state,
     { edit } = this.props
     return(
-        <form
+        <form className={'row-group'}
         onSubmit={this.onAdd.bind(this)}>
-       <div  className={'form-group'}>
+       <div  className={'form-group shadow p-3 mb-5 bg-white rounded col-md-10'}>
+       <div className={'text-center '}>
+       <form className={'shadow-none p-3 mb-5 bg-light rounded col-md-15'}>
+         <label >{edit ? 'Update Book' : 'Add Book'} </label>
+         </form>
+       </div>
 
           <div
-            className={'form-group col-md-5'}>
+            className={'form-group '}>
             <label>Book Title </label>
             <input
               ref={'name'}
@@ -82,7 +87,7 @@ render(){
             />
           </div>
           <div
-            className={'form-group col-md-5'}>
+            className={'form-group '}>
             <label>Book Author </label>
             <input
             ref={'author'}
@@ -96,23 +101,23 @@ render(){
           </div>
 
           <div
-            className={'form-group col-md-5'}>
+            className={'form-group '}>
             <label>Book Description </label>
-            <input
+            <textarea
             ref={'description'}
             autoFocus
             value={description}
             onChange={this.onChangeForm.bind(this,'description')}
               className={'form-control'}
               type={'text'}
-              placeholder={'Product description ..'}
+              placeholder={'Book Description ..'}
             />
           </div>
 
           <div
-            className={'btn-group btn-group-toggle'}>
+            className={'btn-group btn-group-toggle '}>
             <button
-              className={'btn btn-primary btn-block'}
+              className={'btn btn-primary btn-block '}
               type={'submit'}>
                {edit ? 'Update' : 'Add'}
             </button>
