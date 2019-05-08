@@ -3,20 +3,20 @@ export default function product(state={products:[]},action){
 
     switch (action.type){
         
-            case 'PRODUCT_FETCH':
+            case 'BOOK_FETCH':
             return {...state,products:action.payload};
 
 
-            case 'Add_Product':
+            case 'ADD_BOOK':
             return {...state,products:action.payload};
 
-            case 'Update_Product':
+            case 'UPDATE_BOOK':
             
-            return {...state,products:action.payload};
+            return {...state};
             
-            case 'Delete_Product':
+            case 'DELETE_BOOK':
             
-            return {...state,products:action.payload};
+            return {...state};
 
            
 

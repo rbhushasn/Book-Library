@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import ReactDOM from 'react-dom';
+
 import {addNewProduct,updateProducts} from '../../actions/index';
 import {updateEdit} from '../../actions/edit/edit.index';
 
@@ -38,13 +38,12 @@ onAdd(e) {
   let { id,title, author,description } = this.state,
     { edit } = this.props;
   if (!title || !author||! description) {
-    alert('Product Name,author and description are required!');
+    alert('Title ,author and description are required!');
   }
   if (edit) {
     this.props.updateProduct({
       id,title, author,description
-    });
-  
+    }); 
     
   } else {
     this.props.onAdd({
@@ -71,7 +70,7 @@ render(){
 
           <div
             className={'form-group col-md-5'}>
-            <label>Book Name </label>
+            <label>Book Title </label>
             <input
               ref={'name'}
               autoFocus
@@ -79,7 +78,7 @@ render(){
               onChange={this.onChangeForm.bind(this,'title')}
               className={'form-control'}
               type={'text'}
-              placeholder={'Product Name ..'}
+              placeholder={'Book Title ..'}
             />
           </div>
           <div

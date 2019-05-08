@@ -4,11 +4,15 @@ import {connect} from "react-redux";
 
 class Header extends Component {
   render() {
-    let { products } = this.props;
+    
     return (
       <div>
         <nav class="navbar navbar-light bg-danger" >
-  <a class="navbar-brand text-center"  href="#">Book Library </a>
+        <Link
+          to={'/'}
+          className={'navbar-brand'}>
+          {'Book Library'}
+        </Link>
 </nav>
      <nav
         className={'navbar navbar-expand-lg navbar-light bg-light'}>
@@ -22,7 +26,7 @@ class Header extends Component {
               <Link
                 to={'/Book List'}
                 className={'nav-link'}>
-                {'Book List'}
+                {'Book List '}
               </Link>
               </li>
             <li
@@ -44,6 +48,6 @@ class Header extends Component {
 
 export default connect((state)=> {
   return {
-    products: state.products
+   
   };
 })(Header);

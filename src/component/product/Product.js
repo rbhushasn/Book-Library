@@ -47,14 +47,16 @@ class Product extends Component{
         const productsArr = this.props.products; 
         
         return(<div >
-            <div class="card-columns" >
+            <div class="card-row" >
                   { productsArr.length > 0 ?  productsArr.map((product,index) => {
-                      return(
+                    
+                     return(
                         <div class="card">
+                         
                     <div class="card-header">{product.book_id}{".  "}{product.title} </div>
                     <div class="card-body">
                     <p class="card-text">{product.description}</p>
-                    <h9 class="card-title text-right">By: {product.author}</h9>
+                    <h6 class="card-title text-right">By: {product.author}</h6>
                     </div>
                     <div class="card-footer">
                     <button

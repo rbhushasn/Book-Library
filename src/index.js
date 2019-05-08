@@ -6,7 +6,7 @@ import {Router} from 'react-router-dom';
 import {App} from './component/index';
 import history from 'helper/history';
 import store from 'helper/store';
-import * as serviceWorker from './serviceWorker';
+
 
 ReactDOM.render(
     <Provider store={store}>

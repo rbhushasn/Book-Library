@@ -7,15 +7,13 @@ export {
     deleteProduct
 
 }
- 
 function fetchAllProducts(){
     return (dispatch) =>{
         let getData= ajaxHelper({type: "GET",contentType: "application/json", dataType:"json", url:"Books"})
         getData.then((res)=>{
           if( res.d.length>0){
-           var  data = res.d;
-            console.log("fetch data : ",data);
-                dispatch(success(data))
+           var data = res.d;
+         dispatch(success(data))
             }
         }).catch((err)=>{
           console.log("error : ",err)
@@ -24,7 +22,7 @@ function fetchAllProducts(){
 
     function success(data){
         return{
-            type : 'PRODUCT_FETCH',
+            type : 'BOOK_FETCH',
             payload : data
         }
     }
@@ -38,19 +36,23 @@ function addNewProduct(product) {
         }
        let getData= ajaxHelper({type: "POST",contentType: "application/json", dataType:"json",data:data, url:"Books"})
         getData.then((res)=>{
-          console.log("res : ",res)
-          if(res.d.lenth>0){
-            return {
-                type: 'ADD_PRODUCT',
-                payload: res.d
-            };
+          if(res.d.length>0){
+            var data = res.d;
+            dispatch(success(data))
           }
         }).catch((err)=>{
           console.log("error : ",err)
         })
     }
+    function success(data){
+    return {
+        type: 'ADD_BOOK',
+        payload: data
+    };
+}
 }
 function updateProducts(product) {
+    debugger;
     return (dispatch) => {
         let data={
             book_id:product.id,
@@ -58,19 +60,24 @@ function updateProducts(product) {
             description:product.description, 
             author:product.author
         }
-       let getData= ajaxHelper({type: "PUT",contentType: "application/json", dataType:"json",data:data, url:"Books"})
+        let getData= ajaxHelper({type: "PUT",contentType: "application/json", dataType:"json",data:data, url:"Books"})
+        debugger
         getData.then((res)=>{
-          
-          if(res.d.lenth>0){
-            return {
-                type: 'Update_PRODUCT',
-                payload: res.d
-            };
-          }
+            debugger
+           if(res.m.length>0){
+             var data = res.d;
+            dispatch(success(data))
+            }
         }).catch((err)=>{
           console.log("error : ",err)
         })
-    }
+}
+        function success(data){
+        return {
+            type: 'UPDATE_BOOK',
+            payload: data
+        };
+}
 }
 function deleteProduct(product) {
     return (dispatch) => {
@@ -79,16 +86,19 @@ function deleteProduct(product) {
         }
        let postData= ajaxHelper({type: "Delete",contentType: "application/json", dataType:"json",data:data, url:"Books"})
         postData.then((res)=>{
-          
-          if(res.d.lenth>0){
-            return {
-                type: 'Delete_PRODUCT',
-                payload: res.d
-            };
+           if(res.m.length>0){
+       dispatch(fetchAllProducts())
+        //dispatch(success(data))
           }
         }).catch((err)=>{
           console.log("error : ",err)
         })
     }
+   /* function success(data){
+        return{
+            type:'DELETE_BOOK',
+            payload:data
+        }
+    }*/
 }
 
