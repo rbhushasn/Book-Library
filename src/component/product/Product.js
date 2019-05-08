@@ -52,6 +52,7 @@ class Product extends Component{
                     
                      return(
                         <div className="col-md-6 py-3">
+                        <div className={'shadow-sm p-3 mb-5 bg-white rounded '} >
                         <div class="card">
                          
                     <div class="card-header">{product.book_id}{".  "}{product.title} </div>
@@ -83,7 +84,7 @@ class Product extends Component{
             </button>
             </div>
              </div>      
-                     
+                     </div>
                      </div>
                      ) 
                      

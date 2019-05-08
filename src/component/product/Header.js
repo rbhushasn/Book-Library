@@ -14,7 +14,7 @@ class Header extends Component {
           {'Book Library'}
         </Link>
 </nav>
-<div className={'shadow-sm p-1 mb-1 bg-white rounded '} >
+
      <nav
         className={'navbar navbar-expand-lg navbar-light background-color: #e3f2fd; shadow-sm p-1 mb-1 bg-white rounded'}>
 
@@ -43,7 +43,7 @@ class Header extends Component {
         </div>
       </nav>
       </div>
-      </div>
+      
     );
   }
 };
