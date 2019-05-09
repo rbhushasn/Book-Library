@@ -7,28 +7,30 @@ class Header extends Component {
     
     return (
       <div>
-        <nav class="navbar navbar-light bg-danger" >
+        <nav class="navbar navbar-light bg-danger navbar-expand-lg " >
         <Link
           to={'/'}
-          className={'navbar-brand'}>
+          className={'navbar-brand '}>
           {'Book Library'}
         </Link>
 </nav>
-
      <nav
-        className={'navbar navbar-expand-lg navbar-light background-color: #e3f2fd; shadow-sm p-1 mb-1 bg-white rounded'}>
+        className={"navbar navbar-expand navbar-light bg-light"}>
 
         <div
-          className={'collapse navbar-collapse'}>
-          <ul
-            className={'navbar-nav mr-auto'}>
+          className={"collapse navbar-collapse"}>
+          <ul 
+          className={'navbar-nav mr-auto'}>
              <li
-              className={'nav-item'}>
+              className={"nav-item "}>
               <Link
                 to={'/Book List'}
                 className={'nav-link'}>
                 {'Book List '}
               </Link>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link divider">|</a>
               </li>
             <li
               className={'nav-item'}>

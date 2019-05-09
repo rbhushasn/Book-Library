@@ -44,6 +44,7 @@ onAdd(e) {
     this.props.updateProduct({
       id,title, author,description
     }); 
+
     
   } else {
     this.props.onAdd({
@@ -58,6 +59,7 @@ onAdd(e) {
     author: '',
     description:''
   });
+  this.props.history.push('/Book List');
 };
 
 render(){
@@ -127,9 +129,6 @@ render(){
       </form>
     )
 }
-    
-}
-{
   
 }
 export default connect((state)=> {

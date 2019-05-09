@@ -61,9 +61,9 @@ function updateProducts(product) {
             author:product.author
         }
         let getData= ajaxHelper({type: "PUT",contentType: "application/json", dataType:"json",data:data, url:"Books"})
-        debugger
+      
         getData.then((res)=>{
-            debugger
+            
            if(res.m.length>0){
              var data = res.d;
             dispatch(success(data))

@@ -33,6 +33,7 @@ class Product extends Component{
 
     onEdit(product) {
         this.props.onEdit(product);
+        this.props.history.push('/Add');
     };
     
     onDelete(product) {
@@ -46,13 +47,15 @@ class Product extends Component{
     render(){
         const productsArr = this.props.products; 
         
-        return(<div >
+        return(<div>
+            
             <div class="row mt-2" >
+            
                   { productsArr.length > 0 ?  productsArr.map((product,index) => {
                     
                      return(
                         <div className="col-md-6 py-3">
-                        <div className={'shadow-sm p-3 mb-5 bg-white rounded '} >
+                        <div className={'shadow-sm p-1 mb-1 bg-white rounded '} >
                         <div class="card">
                          
                     <div class="card-header">{product.book_id}{".  "}{product.title} </div>
@@ -61,25 +64,24 @@ class Product extends Component{
                     <h6 class="card-title text-right">By: {product.author}</h6>
                     </div>
                     <div class="card-footer">
-
-
-                    <button
+                <button
               onClick={this.onDetails.bind(this,product)}
-              className={'btn btn-primary btn-sm float-right'}
+              className={'btn btn-outline-info btn-sm float-right'}
               type={'button'}>
               {'Details'}
             </button> 
-           
+           {"  "}
             <button
               onClick={this.onDelete.bind(this, product)}
-              className={'btn btn-danger btn-sm float-right'}
+              className={'btn btn-outline-danger btn-sm float-right'}
               type={'button'}>
               {'Remove'}
             </button>
+            {"  "}
             <button
               onClick={this.onEdit.bind(this, product)}
               type={'button'}
-              className={'btn btn-dark btn-sm float-right'}>
+              className={'btn btn-outline-primary btn-sm float-right'}>
               Edit
             </button>
             </div>
@@ -89,20 +91,20 @@ class Product extends Component{
                      ) 
                      
                     }) : 'Book is Loading......' }
-                    
+                  <form className={"form-group shadow p-3 mb-5 bg-light rounded"} >
               <Modal show={this.state.show} onHide={this.handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>{this.state.obj.book_id}. {this.state.obj.title}</Modal.Title>
               </Modal.Header>
               {this.state.obj !=null ? 
-              <Modal.Body>{this.state.obj.description}<br/>
-              By :{this.state.obj.author} 
+              <Modal.Body>{this.state.obj.description}<br/><br/><div className={"text-right"}>
+              By :{this.state.obj.author} </div>
               </Modal.Body> : 'No data'}
               <Modal.Footer>
-                <button variant="secondary" onClick={this.handleClose}>Close</button>
+                <button className={"btn btn-outline-secondary"} onClick={this.handleClose}>Close</button>
               </Modal.Footer>
             </Modal>
-    
+    </form>
             </div>
         </div>)
         

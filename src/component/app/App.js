@@ -19,6 +19,7 @@ export class App extends Component{
             <ConnectedRouter
               store={store}
               history={history}>
+              <form>
               <Fragment>
                 <Header />
                 <div
@@ -48,7 +49,9 @@ export class App extends Component{
                     </div>
                   </div>
                 </div>
+              
               </Fragment>
+              </form>
             </ConnectedRouter>
           </Router>
         );
